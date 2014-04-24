@@ -1,13 +1,11 @@
 package fr.boillodmanuel.restx.gae.rest;
 
 import fr.boillodmanuel.restx.gae.domain.Message;
-import fr.boillodmanuel.restx.gae.Roles;
 import org.joda.time.DateTime;
 import restx.annotations.GET;
 import restx.annotations.RestxResource;
 import restx.factory.Component;
 import restx.security.PermitAll;
-import restx.security.RolesAllowed;
 import restx.security.RestxSession;
 
 @Component @RestxResource
@@ -21,7 +19,6 @@ public class HelloResource {
      * @return a Message to say hello
      */
     @GET("/message")
-    @RolesAllowed(Roles.HELLO_ROLE)
     public Message sayHello() {
         return new Message().setMessage(String.format(
                 "hello %s, it's %s",
